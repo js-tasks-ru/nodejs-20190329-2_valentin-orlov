@@ -1,4 +1,5 @@
 const url = require('url');
+const fs = require('fs');
 const http = require('http');
 const path = require('path');
 
@@ -9,9 +10,28 @@ server.on('request', (req, res) => {
 
   const filepath = path.join(__dirname, 'files', pathname);
 
+
+
+  const src = fs.createReadStream(filepath) ;
+  src.pipe(res);
+
+
+  src.on('error', (e) =>{
+
+  });
+
   switch (req.method) {
     case 'GET':
-
+      fs.exists(filepath, exist =>{
+        if(!exist){
+          res.statusCode = 404;
+          res.end('file not found');
+        }
+      });
+      if(pathname.split('/').length > 1){
+        res.statusCode = 400;
+        res.end('bad directory');
+      }
       break;
 
     default:
