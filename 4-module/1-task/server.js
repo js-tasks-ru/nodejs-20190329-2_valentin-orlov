@@ -17,7 +17,7 @@ server.on('request', (req, res) => {
 
 
   src.on('error', (e) =>{
-    console.log(e.message);
+
   });
 
   switch (req.method) {

@@ -66,7 +66,7 @@ function saveFile(filepath, req, res) {
   function removeFile() {
     fs.unlink(filepath, (err) => {
       if (err) {
-        console.error(`Can't remove file:\n${filepath}`);
+        return false;
       }
     });
   }
