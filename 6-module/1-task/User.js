@@ -9,7 +9,7 @@ const schema = new mongoose.Schema({
       validator: function(v) {
         return /^[-.\w]+@([\w-]+\.)+[\w-]{2,12}$/.test(v);
       },
-      message: props => `${props.value} is not a valid phone number!`
+      message: props => `${props.value} is not a valid email!`
     }],
     lowercase: true,
     trim: true
