@@ -7,8 +7,8 @@ const users = new User({
   email: '111qwe@qwe.com',
   displayName:' ASDFGHJ '
 });
-console.log(users);
+
 users.save()
-  .then(() => console.log('meow'))
+  .then(() => ())
   .catch((err) => console.log(err));
 
