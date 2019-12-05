@@ -8,7 +8,5 @@ const users = new User({
   displayName:' ASDFGHJ '
 });
 
-users.save()
-  .then(() => ())
-  .catch((err) => console.log(err));
+users.save();
 
